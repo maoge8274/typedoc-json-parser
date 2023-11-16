@@ -103,8 +103,8 @@ export class ClassParser extends Parser {
       implementsType: this.implementsType.map((implementsType) => implementsType.toJSON()),
       typeParameters: this.typeParameters.map((typeParameter) => typeParameter.toJSON()),
       construct: this.construct.toJSON(),
-      properties: this.properties,
-      methods: this.methods
+      properties: this.properties.map((property) => property.toJSON()),
+      methods: this.methods.map((method) => method.toJSON())
     };
   }
 
