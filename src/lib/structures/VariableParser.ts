@@ -63,7 +63,7 @@ export class VariableParser extends Parser {
       comment: this.comment.toJSON(),
       external: this.external,
       type: this.type.toJSON(),
-      value: this.value
+      value: this.value||undefined
     };
   }
 
