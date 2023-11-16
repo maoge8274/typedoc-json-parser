@@ -37,7 +37,7 @@ export class VariableParser extends Parser {
    * The value of this variable.
    * @since 1.0.0
    */
-  public readonly value?: string;
+  public readonly value: string;
 
   public constructor(data: VariableParser.Data) {
     super(data);
@@ -63,7 +63,7 @@ export class VariableParser extends Parser {
       comment: this.comment.toJSON(),
       external: this.external,
       type: this.type.toJSON(),
-      value: this.value||undefined
+      value: this.value||''
     };
   }
 
@@ -178,6 +178,6 @@ export namespace VariableParser {
      * The value of this variable.
      * @since 1.0.0
      */
-    value?: string;
+    value: string;
   }
 }
