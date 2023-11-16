@@ -178,6 +178,6 @@ export namespace VariableParser {
      * The value of this variable.
      * @since 1.0.0
      */
-    value: string;
+    value?: string;
   }
 }
