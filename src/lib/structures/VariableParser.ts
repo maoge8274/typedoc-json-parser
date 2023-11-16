@@ -37,7 +37,7 @@ export class VariableParser extends Parser {
    * The value of this variable.
    * @since 1.0.0
    */
-  public readonly value: string;
+  public readonly value?: string;
 
   public constructor(data: VariableParser.Data) {
     super(data);
