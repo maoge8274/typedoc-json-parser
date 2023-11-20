@@ -93,7 +93,7 @@ export function reflectionKindToString(kind: ReflectionKind): string {
     case ReflectionKind.TypeAlias:
       return 'TypeAlias';
 
-    case ReflectionKind.Reference:
-      return 'Reference';
+    // case ReflectionKind.Reference:
+    //   return 'Reference';
   }
 }
