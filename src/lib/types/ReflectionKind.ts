@@ -22,7 +22,7 @@ export enum ReflectionKind {
   SetSignature = 0x100000,
   // TypeAlias = 0x200000,
   TypeAlias = 0x400000,
-  // Reference = 0x400000
+  Reference = 0x4000000
 }
 
 export function reflectionKindToString(kind: ReflectionKind): string {
@@ -93,7 +93,7 @@ export function reflectionKindToString(kind: ReflectionKind): string {
     case ReflectionKind.TypeAlias:
       return 'TypeAlias';
 
-    // case ReflectionKind.Reference:
-    //   return 'Reference';
+    case ReflectionKind.Reference:
+      return 'Reference';
   }
 }
