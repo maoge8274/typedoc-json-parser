@@ -168,7 +168,8 @@ function migrateClassJson(
       typeParameters: [],
       construct: migrateClassConstructorJson(construct, id, typeDocJsonParserVersion),
       properties: properties.map((propertyJson) => migrateClassPropertyJson(propertyJson, id, typeDocJsonParserVersion)),
-      methods: methods.map((methodJson) => migrateClassMethodJson(methodJson, id, typeDocJsonParserVersion))
+      methods: methods.map((methodJson) => migrateClassMethodJson(methodJson, id, typeDocJsonParserVersion)),
+      groups: []
     };
   }
 
@@ -198,7 +199,8 @@ function migrateClassJson(
       : [],
     construct: migrateClassConstructorJson(construct, id, typeDocJsonParserVersion),
     properties: properties.map((propertyJson) => migrateClassPropertyJson(propertyJson, id, typeDocJsonParserVersion)),
-    methods: methods.map((methodJson) => migrateClassMethodJson(methodJson, id, typeDocJsonParserVersion))
+    methods: methods.map((methodJson) => migrateClassMethodJson(methodJson, id, typeDocJsonParserVersion)),
+    groups: []
   };
 }
 

@@ -20,8 +20,9 @@ export enum ReflectionKind {
   Accessor = 0x40000,
   GetSignature = 0x80000,
   SetSignature = 0x100000,
-  TypeAlias = 0x200000,
-  Reference = 0x400000
+  // TypeAlias = 0x200000,
+  TypeAlias = 0x400000,
+  Reference = 0x4000000
 }
 
 export function reflectionKindToString(kind: ReflectionKind): string {
