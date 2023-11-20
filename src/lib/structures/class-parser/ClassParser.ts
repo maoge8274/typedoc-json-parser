@@ -70,10 +70,12 @@ export class ClassParser extends Parser {
    */
   public readonly methods: ClassMethodParser[];
 
+  public readonly groups:any[]
+
   public constructor(data: ClassParser.Data) {
     super(data);
 
-    const { namespaceParentId, comment, external, abstract, extendsType, implementsType, typeParameters, construct, properties, methods } = data;
+    const { namespaceParentId, comment, external, abstract, extendsType, implementsType, typeParameters, construct, properties, methods,groups } = data;
 
     this.namespaceParentId = namespaceParentId;
     this.comment = comment;
@@ -85,6 +87,8 @@ export class ClassParser extends Parser {
     this.construct = construct;
     this.properties = properties;
     this.methods = methods;
+
+    this.groups = groups
   }
 
   /**
@@ -104,7 +108,8 @@ export class ClassParser extends Parser {
       typeParameters: this.typeParameters.map((typeParameter) => typeParameter.toJSON()),
       construct: this.construct.toJSON(),
       properties: this.properties.map((property) => property.toJSON()),
-      methods: this.methods.map((method) => method.toJSON())
+      methods: this.methods.map((method) => method.toJSON()),
+      groups:this.groups
     };
   }
 
@@ -125,7 +130,8 @@ export class ClassParser extends Parser {
       children = [],
       extendedTypes = [],
       implementedTypes = [],
-      typeParameters = []
+      typeParameters = [],
+      groups = []
     } = reflection;
 
     if (kind !== ReflectionKind.Class) {
@@ -157,7 +163,8 @@ export class ClassParser extends Parser {
       typeParameters: typeParameters.map((typeParameter) => TypeParameterParser.generateFromTypeDoc(typeParameter)),
       construct: ClassConstructorParser.generateFromTypeDoc(construct, id),
       properties,
-      methods
+      methods,
+      groups
     });
   }
 
@@ -180,7 +187,8 @@ export class ClassParser extends Parser {
       typeParameters,
       construct,
       properties,
-      methods
+      methods,
+      groups
     } = json;
 
     return new ClassParser({
@@ -196,7 +204,8 @@ export class ClassParser extends Parser {
       typeParameters: typeParameters.map((typeParameter) => TypeParameterParser.generateFromJson(typeParameter)),
       construct: ClassConstructorParser.generateFromJson(construct),
       properties: properties.map((property) => ClassPropertyParser.generateFromJson(property)),
-      methods: methods.map((method) => ClassMethodParser.generateFromJson(method))
+      methods: methods.map((method) => ClassMethodParser.generateFromJson(method)),
+      groups
     });
   }
 }
@@ -262,6 +271,8 @@ export namespace ClassParser {
      * @since 1.0.0
      */
     methods: ClassMethodParser[];
+
+    groups:any[]
   }
 
   export interface Json extends Parser.Json {
@@ -324,6 +335,8 @@ export namespace ClassParser {
      * @since 1.0.0
      */
     methods: ClassMethodParser.Json[];
+
+    groups:any[]
   }
 
   /**
