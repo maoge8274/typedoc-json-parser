@@ -76,7 +76,7 @@ export class TypeAliasParser extends Parser {
   public static generateFromTypeDoc(reflection: JSONOutput.DeclarationReflection, namespaceParentId: number | null): TypeAliasParser {
     const { kind, id, name, comment = { summary: [] }, sources = [], flags, type, typeParameters = [] } = reflection;
 
-    if (kind !== ReflectionKind.Reference) {
+    if (kind !== ReflectionKind.TypeAlias) {
       throw new Error(
         `Expected TypeAlias (${ReflectionKind.TypeAlias}), but received ${reflectionKindToString(kind)} (${kind}). NAME=${name};ID=${id}`
       );
